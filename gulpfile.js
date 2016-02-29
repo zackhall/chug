@@ -105,8 +105,11 @@ function applyTemplate(templateFile) {
 
 function collectPosts() {
   posts = [];
+  site.posts = [];
   return through.obj(function (file, enc, cb) {
-    posts.push(file.page);    this.push(file);
+    posts.push(file.page);    
+    site.posts.push(file.page);
+    this.push(file);
     cb();
   }, function (cb) {
     posts.sort(function (a, b) {
