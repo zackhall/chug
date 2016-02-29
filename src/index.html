@@ -3,9 +3,24 @@
 {% block title %} {% parent %} | Index {% endblock %}
 
 {% block content %}
-  <h1 class="title">{{ siteTitle }}</h1>
-  <h2 class="author">{{ author }}</h2>
-  <div class="main-content">
-  	Hello there, scout.
+	<div id="site-title">
+		<h1>{{ siteTitle }}</h1>
+	</div>
+	<div id="author">
+		<div id="author-photo">
+			<img src="/assets/author.jpg" alt="Author">
+		</div>
+		<div id="author-bio">
+			<p>Written by <span>Zack Hall</span> who lives and works in Seattle building useful things.</p>
+			<p>You should follow him on <a href="http://twitter.com/{{ twitterHandle }}">twitter</a>.</p>
+		</div>
+	</div>
+  <div id="recent-posts">
+  	<h2>Recent Posts</h2>
+  	<ul>
+			{% for post in posts %}
+				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+			{% endfor %}
+  	</ul>
   </div>
 {% endblock %}
