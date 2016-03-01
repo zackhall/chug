@@ -16,7 +16,21 @@ var bourbon = require('node-bourbon').includePaths,
 var site = require('./config.json');
 
 var swigDefaults = {
-  defaults: { cache: false }
+  defaults: { cache: false },
+  setup: function(gulpSwig) {
+    gulpSwig.setFilter('sortBy', function(inputArray, key, reverse) {
+      if(reverse) {
+        inputArray.sort(function (a, b) {
+          return b[key] - a[key];
+        });
+      } else {
+        inputArray.sort(function (a, b) {
+          return a[key] - b[key];
+        });
+      }
+      return inputArray;
+    });
+  }
 }
 
 var postNamePattern = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/;
@@ -31,7 +45,7 @@ gulp.task('index', ['posts'], function() {
 });
 
 gulp.task('posts', function() {
-  gulp.src('src/posts/*.md')
+  return gulp.src('src/posts/*.md')
     .pipe(frontMatter({ property: 'page', remove: true }))
     .pipe(marked())
     .pipe(applyTemplate('src/partials/_post.html'))
@@ -105,10 +119,8 @@ function applyTemplate(templateFile) {
 
 function collectPosts() {
   posts = [];
-  site.posts = [];
   return through.obj(function (file, enc, cb) {
-    posts.push(file.page);    
-    site.posts.push(file.page);
+    posts.push(file.page);
     this.push(file);
     cb();
   }, function (cb) {
