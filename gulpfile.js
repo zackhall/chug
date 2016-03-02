@@ -1,13 +1,13 @@
 var browserSync = require('browser-sync').create(), 
   data = require('gulp-data'),
   frontMatter = require('gulp-front-matter'),
+  fs = require('fs'),
   gulp = require('gulp'),
-  gulpSwig = require('gulp-swig'),
   marked = require('gulp-marked'),
+  nunjucks = require('nunjucks');
   path = require('path'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
-  swig = require('swig'),
   through = require('through2');
 
 var bourbon = require('node-bourbon').includePaths,
@@ -15,32 +15,14 @@ var bourbon = require('node-bourbon').includePaths,
 
 var site = require('./config.json');
 
-var swigDefaults = {
-  defaults: { cache: false },
-  setup: function(gulpSwig) {
-    gulpSwig.setFilter('sortBy', function(inputArray, key, reverse) {
-      if(reverse) {
-        inputArray.sort(function (a, b) {
-          return b[key] - a[key];
-        });
-      } else {
-        inputArray.sort(function (a, b) {
-          return a[key] - b[key];
-        });
-      }
-      return inputArray;
-    });
-  }
-}
+var env = nunjucks.configure(['src/partials/', 'src']);
 
 var postNamePattern = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/;
 
 gulp.task('index', ['posts'], function() {
   gulp.src('src/index.html')
-    .pipe(data(function() {
-      return site;
-    }))
-    .pipe(gulpSwig(swigDefaults))
+    .pipe(data(site))
+    .pipe(nunjucksRender())
     .pipe(gulp.dest('dist'));
 });
 
@@ -48,7 +30,7 @@ gulp.task('posts', function() {
   return gulp.src('src/posts/*.md')
     .pipe(frontMatter({ property: 'page', remove: true }))
     .pipe(marked())
-    .pipe(applyTemplate('src/partials/_post.html'))
+    .pipe(applyNunjucksTemplate('src/partials/_post.html'))
     .pipe(parsePostName())
     .pipe(collectPosts())
     .pipe(rename(function (path) {
@@ -103,15 +85,23 @@ gulp.task('clean', function() {
 
 gulp.task('default', ['serve']);
 
-function applyTemplate(templateFile) {
-  var tpl = swig.compileFile(path.join(__dirname, templateFile));
+function applyNunjucksTemplate(templateFile) {
+  var tpl = nunjucks.compile(fs.readFileSync(path.join(__dirname, templateFile), 'utf8').toString(), env);
 
-  return through.obj(function (file, enc, cb) {            
+  return through.obj(function (file, enc, cb) {
     var data = {
       page: file.page,
       content: file.contents.toString()
-    };            
-    file.contents = new Buffer(tpl(data), 'utf8');
+    }; 
+    file.contents = new Buffer(tpl.render(data), 'utf8');
+    this.push(file);
+    cb();
+  });
+}
+
+function nunjucksRender() {
+  return through.obj(function (file, enc, cb) {
+    file.contents = new Buffer(nunjucks.render(file.path, file.data), 'utf8');
     this.push(file);
     cb();
   });
@@ -128,7 +118,6 @@ function collectPosts() {
       return b.date - a.date;
     });
     site.posts = posts;
-    list2 = posts;
     cb();
   });
 }

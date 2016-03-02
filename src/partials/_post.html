@@ -1,6 +1,6 @@
-{% extends '../layout.html' %}
+{% extends '_layout.html' %}
 
-{% block title %} {% parent %} | {{ page.title }} {% endblock %}
+{% block title %} {{ super() }} | {{ page.title }} {% endblock %}
 
 {% block content %}
   <h1>{{ page.title }}</h1>

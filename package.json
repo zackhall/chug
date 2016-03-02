@@ -24,6 +24,7 @@
     "marked": "^0.3.5",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2",
+    "nunjucks": "^2.3.0",
     "through2": "^2.0.1"
   }
 }

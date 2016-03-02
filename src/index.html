@@ -1,6 +1,6 @@
-{% extends 'layout.html' %}
+{% extends '_layout.html' %}
 
-{% block title %} {% parent %} | Index {% endblock %}
+{% block title %} {{ super() }} | Index {% endblock %}
 
 {% block content %}
 	<div id="site-title">
@@ -18,7 +18,7 @@
   <div id="recent-posts">
   	<h2>Recent Posts</h2>
   	<ul>
-			{% for post in posts|sortBy('date', true) %}
+			{% for post in posts %}
 				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
 			{% endfor %}
   	</ul>
