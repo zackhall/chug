@@ -15,7 +15,9 @@ var bourbon = require('node-bourbon').includePaths,
 
 var site = require('./config.json');
 
-var env = nunjucks.configure(['src/partials/', 'src']);
+var env = nunjucks.configure(['src', 'src/partials/', 'src/pages'], {
+  noCache: true
+});
 
 var postNamePattern = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/;
 
@@ -50,6 +52,13 @@ gulp.task('posts', function() {
     .pipe(gulp.dest('dist/posts'));
 });
 
+gulp.task('pages', function() {
+  return gulp.src('src/pages/*.html')
+    .pipe(data(site))
+    .pipe(nunjucksRender())
+    .pipe(gulp.dest('dist/pages'));
+})
+
 gulp.task('sass', function() {
   gulp.src('src/scss/**/*.scss')
     .pipe(sass({
@@ -74,7 +83,7 @@ gulp.task('reload', function() {
   browserSync.reload();
 })
 
-gulp.task('build', ['posts', 'index', 'sass'], function() {
+gulp.task('build', ['posts', 'pages', 'index', 'sass'], function() {
   gulp.src('assets/*')
     .pipe(gulp.dest('dist/assets/'));
 });

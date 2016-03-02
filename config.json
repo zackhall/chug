@@ -2,5 +2,8 @@
   "siteTitle": "Chug",
   "author": "Zack Hall",
   "twitterHandle": "zthall",
-  "googleAnalytics": "UA-XXXXX-Y"
+  "googleAnalytics": "UA-XXXXX-Y",
+  "site": {
+  	"email": "zackhall@outlook.com"
+  }
 }
