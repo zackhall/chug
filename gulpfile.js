@@ -30,6 +30,7 @@ gulp.task('posts', function() {
   return gulp.src('src/posts/*.md')
     .pipe(frontMatter({ property: 'page', remove: true }))
     .pipe(marked())
+    .pipe(data(site))
     .pipe(applyNunjucksTemplate('src/partials/_post.html'))
     .pipe(parsePostName())
     .pipe(collectPosts())
@@ -89,10 +90,11 @@ function applyNunjucksTemplate(templateFile) {
   var tpl = nunjucks.compile(fs.readFileSync(path.join(__dirname, templateFile), 'utf8').toString(), env);
 
   return through.obj(function (file, enc, cb) {
-    var data = {
+    var data = Object.assign(file.data, {
       page: file.page,
       content: file.contents.toString()
-    }; 
+    });
+
     file.contents = new Buffer(tpl.render(data), 'utf8');
     this.push(file);
     cb();

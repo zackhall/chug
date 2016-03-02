@@ -1,6 +1,9 @@
 ---
 title: Hello, World.
+author: Zack Hall
 ---
+
+# Hello, World.
 
 *This post is going to be tough to read unless you know Latin.*
 

@@ -154,6 +154,10 @@ p.author {
 //* Homepage
 #site-title {
 	@include span-columns(12);
+
+  h1 {
+    font-family: $sans-serif;
+  }
 }
 
 #author {
