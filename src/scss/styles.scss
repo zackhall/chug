@@ -151,6 +151,43 @@ p.author {
   font-style: italic;
 }
 
+//* Nav
+
+nav {
+  @include span-columns(12);
+  padding-bottom: 2rem;
+}
+
+nav ul {
+  list-style-type: none;
+  float: right;
+}
+
+nav li {
+  display: inline-block;
+  padding: 0 10px;
+
+  a:hover {
+    border-bottom: 3px solid $action-color;
+  }
+}
+
+#site-title {
+  @include span-columns(4 of 12);
+
+  h1 {
+    font-family: $sans-serif;
+  }
+
+  a {
+    color: $base-font-color;
+  }
+}
+
+#menu-pages {
+  @include span-columns(8 of 12);
+}
+
 //* Form styling
 
 .form-stacked input,
@@ -218,19 +255,15 @@ input, select, textarea, fieldset {
 }
 
 //* Homepage
-#site-title {
-	@include span-columns(12);
-
-  h1 {
-    font-family: $sans-serif;
-  }
-}
 
 #author {
 	@include span-columns(12);
 
 	#author-photo {
-		@include span-columns(1 of 12);
+		@include span-columns(2 of 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 		img {
 			@include size(3.5rem);
@@ -239,7 +272,7 @@ input, select, textarea, fieldset {
 	}
 
 	#author-bio {
-		@include span-columns(11 of 12);
+		@include span-columns(10 of 12);
 
 		p {
 			line-height: 1em;

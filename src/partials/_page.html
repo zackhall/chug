@@ -1,0 +1,9 @@
+{% extends '_layout.html' %}
+
+{% block title %} {{ super() }} | {{ page.title }} {% endblock %}
+
+{% block content %}
+  <div class="content">
+    {{ content|safe }}
+  </div>
+{% endblock %}

@@ -52,12 +52,26 @@ gulp.task('posts', function() {
     .pipe(gulp.dest('dist/posts'));
 });
 
-gulp.task('pages', function() {
+gulp.task('pages:md', function() {
+  return gulp.src('src/pages/*.md')
+    .pipe(data(site))
+    .pipe(frontMatter({ property: 'page', remove: true }))
+    .pipe(marked())
+    .pipe(applyNunjucksTemplate())
+    .pipe(rename(function(path) {
+      path.extname = ".html";
+    }))
+    .pipe(gulp.dest('dist/pages'));
+});
+
+gulp.task('pages:html', function() {
   return gulp.src('src/pages/*.html')
     .pipe(data(site))
     .pipe(nunjucksRender())
     .pipe(gulp.dest('dist/pages'));
-})
+});
+
+gulp.task('pages', ['pages:md', 'pages:html']);
 
 gulp.task('sass', function() {
   gulp.src('src/scss/**/*.scss')
@@ -96,9 +110,13 @@ gulp.task('clean', function() {
 gulp.task('default', ['serve']);
 
 function applyNunjucksTemplate(templateFile) {
-  var tpl = nunjucks.compile(fs.readFileSync(path.join(__dirname, templateFile), 'utf8').toString(), env);
-
   return through.obj(function (file, enc, cb) {
+    templateFile = templateFile 
+      ? path.join( templateFile) 
+      : path.join('src', 'partials', file.page.template);
+    console.log(templateFile);
+    var tpl = nunjucks.compile(fs.readFileSync(templateFile, 'utf8').toString(), env);
+
     var data = Object.assign(file.data, {
       page: file.page,
       content: file.contents.toString()
