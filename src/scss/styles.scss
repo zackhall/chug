@@ -1,5 +1,7 @@
 @import "bourbon";
 @import "neat";
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
+
 
 $base-border-radius: 3px !default;
 $base-line-height: 1.5em !default;
@@ -11,6 +13,7 @@ $medium-screen: em(640) !default;
 $base-font-color: $dark-gray !default;
 $serif: 'Lusitana', serif;
 $serif-2: 'Merriweather', serif;
+$serif-3: 'Raleway', serif;
 $sans-serif: 'Merriweather Sans', sans-serif;
 
 
