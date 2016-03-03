@@ -114,7 +114,6 @@ function applyNunjucksTemplate(templateFile) {
     templateFile = templateFile 
       ? path.join( templateFile) 
       : path.join('src', 'partials', file.page.template);
-    console.log(templateFile);
     var tpl = nunjucks.compile(fs.readFileSync(templateFile, 'utf8').toString(), env);
 
     var data = Object.assign(file.data, {

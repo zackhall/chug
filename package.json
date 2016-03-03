@@ -20,7 +20,6 @@
     "gulp-marked": "^1.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
-    "gulp-swig": "^0.8.0",
     "marked": "^0.3.5",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2",
