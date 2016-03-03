@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<img src="http://placehold.it/1000x250">
+<img src="http://placehold.it/1000x250" height="250">
 
 <h1>Hello</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p><span> This text is wrapped with a  <code>span</code>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></p>
 
 <h1>Headings</h1>
 <hr style="width:100%">
@@ -23,13 +23,13 @@
 <h1>Images</h1>
 <hr style="width:100%">
 <p>This is an image wider than the container</p>
-<img src="http://placehold.it/1000x250">
+<img src="http://placehold.it/1000x250" height="250">
 
 <p>Smaller image</p>
-<img src="http://placehold.it/350x150">
+<img src="http://placehold.it/350x150" height="150">
 
 <p>This image is huge.</p>
-<img src="http://placehold.it/2000x2000">
+<img src="http://placehold.it/2000x2000"  height="2000">
 
 <h1>Quotes</h1>
 <hr style="width:100%">
@@ -141,49 +141,132 @@
 </dl>
 
 
+
+<h1>Addresses</h1>
+<hr style="width:100%">
+<address>
+  <strong>Twitter, Inc.</strong><br>
+  1355 Market Street, Suite 900<br>
+  San Francisco, CA 94103<br>
+  <abbr title="Phone">P:</abbr> (123) 456-7890
+</address>
+
+
 <h1>Forms</h1>
 <hr style="width:100%">
-<form action="#" method="post">
-    <p>
-         <label for="name">Text Input:</label>
-         <input type="text" name="name" id="name" value="" tabindex="1" />
-    </p>
 
-    <p>
-         <h4>Radio Button Choice</h4>
-
-         <label for="radio-choice-1">Choice 1</label>
-         <input type="radio" name="radio-choice-1" id="radio-choice-1" tabindex="2" value="choice-1" />
-
-		 <label for="radio-choice-2">Choice 2</label>
-         <input type="radio" name="radio-choice-2" id="radio-choice-2" tabindex="3" value="choice-2" />
-    </p>
-
-	<p>
-		<label for="select-choice">Select Dropdown Choice:</label>
-		<select name="select-choice" id="select-choice">
-			<option value="Choice 1">Choice 1</option>
-			<option value="Choice 2">Choice 2</option>
-			<option value="Choice 3">Choice 3</option>
-		</select>
-	</p>
-	
-	<p>
-		<label for="textarea">Textarea:</label>
-		<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
-	</p>
-	
-	<p>
-	    <label for="checkbox">Checkbox:</label>
-		<input type="checkbox" name="checkbox" id="checkbox" />
-    </p>
-
-	<p>
-	    <input type="submit" value="Submit" />
-    </p>
+<h2>Sign-in Form</h2>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit">Submit</button>
 </form>
 
 
+<h2>Radios and Checkboxes</h2>
+<div class="checkbox">
+  <label>
+    <input type="checkbox" value="">
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+<div class="checkbox disabled">
+  <label>
+    <input type="checkbox" value="" disabled>
+    Option two is disabled
+  </label>
+</div>
 
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    Option two can be something else and selecting it will deselect option one
+  </label>
+</div>
+<div class="radio disabled">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+    Option three is disabled
+  </label>
+</div>
 
+<h2>Selects</h2>
+<p>
+<select class="form-control">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+</p>
+<p>
+<select multiple class="form-control">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+</p>
+<div class="form-group has-success">
+  <label class="control-label" for="inputSuccess1">Input with success</label>
+  <input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+  <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+</div>
+<div class="form-group has-warning">
+  <label class="control-label" for="inputWarning1">Input with warning</label>
+  <input type="text" class="form-control" id="inputWarning1">
+</div>
+<div class="form-group has-error">
+  <label class="control-label" for="inputError1">Input with error</label>
+  <input type="text" class="form-control" id="inputError1">
+</div>
+<div class="has-success">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="checkboxSuccess" value="option1">
+      Checkbox with success
+    </label>
+  </div>
+</div>
+<div class="has-warning">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="checkboxWarning" value="option1">
+      Checkbox with warning
+    </label>
+  </div>
+</div>
+<div class="has-error">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="checkboxError" value="option1">
+      Checkbox with error
+    </label>
+  </div>
+</div>
 {% endblock %}
+

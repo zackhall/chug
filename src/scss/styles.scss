@@ -26,9 +26,9 @@ $secondary-text-color: #727272 !default;
 $divider-color:        #B6B6B6 !default;
 
 $action-color: $accent-color;
-$dark-gray: #333 !default;
-$light-gray: #DDD !default;
-$base-font-color: $dark-gray !default;
+$dark-gray: $primary-text-color;
+$light-gray: $primary-color-light;
+$base-font-color: $primary-text-color;
 
 
 // Type
@@ -61,6 +61,7 @@ html {
 h1, h2, h3, p {
   margin: 0;
   font-family: $brand-type-headings;
+  color: $dark-gray;
 }
 
 h1, h2, h3, h4, h5{
