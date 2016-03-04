@@ -4,6 +4,8 @@
 $base-border-radius: 3px !default;
 $base-line-height: 1.5em !default;
 $base-spacing: 1.5em !default;
+$accent-color: #F8DA59 !default;
+$accent-dark-color: #E1B90A !default;
 $action-color: #477DCA !default;
 $dark-gray: #333 !default;
 $light-gray: #DDD !default;
@@ -13,17 +15,27 @@ $serif: 'Lusitana', serif;
 $serif-2: 'Merriweather', serif;
 $sans-serif: 'Merriweather Sans', sans-serif;
 
+$large-site-width: 60%;
+$medium-site-width: 95%;
+
 
 //* General Site Styles
 .site-container {
-	@include outer-container(60%);
-	@include pad(50px default);
+  @include media($medium-screen) {
+    @include outer-container($large-site-width);  
+  }
+	
+  @include outer-container($medium-site-width);
 }
 
 html {
 	@include clearfix;
 	font-family: $serif-2;
 	text-align: left;
+}
+
+body {
+  margin: 0;
 }
 
 h1, h2, h3, p {
@@ -153,19 +165,44 @@ p.author {
 
 //* Nav
 
+header {
+  background-color: $accent-color;
+  margin-bottom: 50px;
+  border-bottom: 1px solid $accent-dark-color;
+  @include padding($base-spacing null);
+}
+
+.header-content {
+  @include media($medium-screen) {
+    @include outer-container($large-site-width);
+    text-align: left;
+  }
+  
+  @include outer-container($medium-site-width);
+  text-align: center;
+}
+
 nav {
-  @include span-columns(12);
-  padding-bottom: 2rem;
+  @include padding($base-spacing null);
 }
 
 nav ul {
   list-style-type: none;
-  float: right;
+  @include margin(null 0);
+  @include padding(null 0);
+  
+  @include media($medium-screen) {
+    float: right;
+  }
 }
 
 nav li {
-  display: inline-block;
-  padding: 0 10px;
+  @include media($medium-screen) {
+    display: inline-block;
+    padding: 0 10px;
+  }
+
+  display: block;
 
   a:hover {
     border-bottom: 3px solid $action-color;
@@ -173,10 +210,15 @@ nav li {
 }
 
 #site-title {
-  @include span-columns(4 of 12);
+  @include media($medium-screen) {
+    @include span-columns(4);  
+  }
+
+  @include span-columns(12);
 
   h1 {
     font-family: $sans-serif;
+    margin: 0;
   }
 
   a {
@@ -185,7 +227,11 @@ nav li {
 }
 
 #menu-pages {
-  @include span-columns(8 of 12);
+  @include media($medium-screen) {
+    @include span-columns(8);  
+  }
+
+  @include span-columns(12);
 }
 
 //* Form styling
@@ -256,31 +302,38 @@ input, select, textarea, fieldset {
 
 //* Homepage
 
-#author {
-	@include span-columns(12);
+#author-photo {
+  @include media($medium-screen) {
+    @include span-columns(2);
+    @include padding(0 null);
+  }
 
-	#author-photo {
-		@include span-columns(2 of 12);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @include span-columns(12);
+  @include padding(($base-spacing / 2) null);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-		img {
-			@include size(3.5rem);
-			border-radius: 50%;
-		}
-	}
+  img {
+    @include size(3.5rem);
+    border-radius: 50%;
+  }
+}
 
-	#author-bio {
-		@include span-columns(10 of 12);
+#author-bio {
+  @include media($medium-screen) {
+    @include span-columns(10);
+  }
 
-		p {
-			line-height: 1em;
-		}
-	}
+  @include span-columns(12);
+
+  p {
+    line-height: 1em;
+  }
 }
 
 #recent-posts {
 	@include span-columns(12);
-	@include pad(35px default);
+	@include pad(35px 0);
 }

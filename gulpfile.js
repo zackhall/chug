@@ -89,6 +89,7 @@ gulp.task('serve', ['build'], function() {
   });
 
   gulp.watch('src/**/*.html', ['build', 'reload']);
+  gulp.watch('src/pages/*.md', ['build', 'reload']);
   gulp.watch('src/posts/**/*.md', ['posts', 'reload']);
   gulp.watch('src/scss/**/*.scss', ['sass', 'reload']);
 });
