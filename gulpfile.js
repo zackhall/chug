@@ -97,11 +97,7 @@ gulp.task('serve', ['build'], function() {
   });
 
   gulp.watch('src/**/*.html', ['build', 'reload']);
-<<<<<<< HEAD
   gulp.watch('src/pages/*.md', ['build', 'reload']);
-=======
-  gulp.watch('src/pages/**/*.md', ['pages', 'reload']);
->>>>>>> 0f04e10d460baaebd04e9a75d8f4d812c6c4ad6e
   gulp.watch('src/posts/**/*.md', ['posts', 'reload']);
   gulp.watch('src/scss/**/*.scss', ['sass', 'reload']);
 
