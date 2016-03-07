@@ -1,5 +1,7 @@
 # Chug
 
+[Demo](http://chug.surge.sh)
+
 #### A simple static site generator using gulp
 
 The goal of this project is to provide a simple static site generator using utilities familiar to a JS dev.
