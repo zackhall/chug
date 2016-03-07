@@ -1,0 +1,272 @@
+{% extends '_layout.html' %}
+
+{% block title %} {{ super() }} | Markup {% endblock %}
+
+{% block content %}
+
+<img src="http://placehold.it/1000x250" height="250">
+
+<h1>Hello</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p><span> This text is wrapped with a  <code>span</code>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></p>
+
+<h1>Headings</h1>
+<hr style="width:100%">
+<h1>h1 Heading</h1>
+<h2>h2 Heading</h2>
+<h3>h3 Heading</h3>
+<h4>h4 Heading</h4>
+<h5>h5 Heading</h5>
+<h6>h6 Heading</h6>
+
+<h1>Images</h1>
+<hr style="width:100%">
+<p>This is an image wider than the container</p>
+<img src="http://placehold.it/1000x250" height="250">
+
+<p>Smaller image</p>
+<img src="http://placehold.it/350x150" height="150">
+
+<p>This image is huge.</p>
+<img src="http://placehold.it/1200x850"  height="850">
+
+<h1>Quotes</h1>
+<hr style="width:100%">
+<blockquote>
+    <p>This is a blockquote. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p><cite>This is a cite.</cite></p>
+</blockquote>
+
+
+
+<h1>Tables</h1>
+<hr style="width:100%">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Table Heading 1</th>
+			<th>Table Heading 2</th>
+			<th>Table Heading 3</th>
+			<th>Table Heading 4</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+		</tr>
+		<tr>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+		</tr>
+		<tr>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+		</tr>
+		<tr>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+		</tr>
+		<tr>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+		</tr>
+		<tr>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+			<td>Row</td>
+		</tr>
+		
+	</tbody>
+</table>
+
+
+
+
+
+<h1>Fonts & Font Sizes</h1>
+<hr style="width:100%">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<p><strong>Strong <code>&lt;strong&gt;</code></strong> and <strong>Bold <code>&lt;b&gt;</code></strong></p>
+<p><em>Emphasis <code>&lt;em&gt;</code></em> and <em>Italic <code>&lt;i&gt;</code></em></p>
+<p style="font-family: serif;">This is a serif typeface.</p>
+<p style="font-family: sans-serif;">This is a sans-serif typeface.</p>
+<p style="font-size: 12px;">Font size 12px</p>
+<p style="font-size: 14px;">Font size 14px</p>
+<p style="font-size: 18px;">Font size 18px</p>
+<p style="font-size: .5em;">Font size .5em</p>
+<p style="font-size: .75em;">Font size .75em</p>
+<p style="font-size: .9em;">Font size .9em</p>
+<p style="font-size: 1em;">Font size 1em</p>
+<p style="font-size: 1.5em;">Font size 1.5em</p>
+<p style="font-size: 2em;">Font size 2em</p>
+
+
+<h1>Lists</h1>
+<hr style="width:100%">
+<ul>
+	<li>This is an unordered list <code>ul</code></li>
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+</ul>
+<ol>
+	<li>This is an ordered list <code>&lt;ol&gt;</code></li>
+	<li>List item number two.</li>
+	<li>List item number three.</li>
+	<li>List item number four.</li>
+	<li>List item number five.</li>
+</ol>
+
+<dl>
+	<dt>This is a term <code>&lt;dt&gt;</code></dt>
+	<dd>This is the definition of that term. <code>&lt;dd&gt;</code></dd>
+</dl>
+
+
+
+<h1>Addresses</h1>
+<hr style="width:100%">
+<address>
+  <strong>Twitter, Inc.</strong><br>
+  1355 Market Street, Suite 900<br>
+  San Francisco, CA 94103<br>
+  <abbr title="Phone">P:</abbr> (123) 456-7890
+</address>
+
+
+<h1>Forms</h1>
+<hr style="width:100%">
+
+<h2>Sign-in Form</h2>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+
+<h2>Radios and Checkboxes</h2>
+<div class="checkbox">
+  <label>
+    <input type="checkbox" value="">
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+<div class="checkbox disabled">
+  <label>
+    <input type="checkbox" value="" disabled>
+    Option two is disabled
+  </label>
+</div>
+
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    Option two can be something else and selecting it will deselect option one
+  </label>
+</div>
+<div class="radio disabled">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+    Option three is disabled
+  </label>
+</div>
+
+<h2>Selects</h2>
+<p>
+<select class="form-control">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+</p>
+<p>
+<select multiple class="form-control">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+</p>
+<div class="form-group has-success">
+  <label class="control-label" for="inputSuccess1">Input with success</label>
+  <input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+  <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+</div>
+<div class="form-group has-warning">
+  <label class="control-label" for="inputWarning1">Input with warning</label>
+  <input type="text" class="form-control" id="inputWarning1">
+</div>
+<div class="form-group has-error">
+  <label class="control-label" for="inputError1">Input with error</label>
+  <input type="text" class="form-control" id="inputError1">
+</div>
+<div class="has-success">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="checkboxSuccess" value="option1">
+      Checkbox with success
+    </label>
+  </div>
+</div>
+<div class="has-warning">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="checkboxWarning" value="option1">
+      Checkbox with warning
+    </label>
+  </div>
+</div>
+<div class="has-error">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="checkboxError" value="option1">
+      Checkbox with error
+    </label>
+  </div>
+</div>
+{% endblock %}
+

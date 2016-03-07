@@ -1,25 +1,64 @@
 @import "bourbon";
 @import "neat";
 
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,600,700,300);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,600,700,300);
+
+
+// Base
 $base-border-radius: 3px !default;
 $base-line-height: 1.5em !default;
 $base-spacing: 1.5em !default;
+<<<<<<< HEAD
 $accent-color: #F8DA59 !default;
 $accent-dark-color: #E1B90A !default;
 $action-color: #477DCA !default;
 $dark-gray: #333 !default;
 $light-gray: #DDD !default;
+=======
+$base-heading-top-spacing: 1em !default;
+
+// Media Queries
+>>>>>>> 0f04e10d460baaebd04e9a75d8f4d812c6c4ad6e
 $medium-screen: em(640) !default;
-$base-font-color: $dark-gray !default;
+
+// Color Palette
+// Generated From https://www.materialpalette.com/grey/blue
+$primary-color-dark:   #616161 !default;
+$primary-color:        #9E9E9E !default;
+$primary-color-light:  #F5F5F5 !default;
+$primary-color-text:   #212121 !default;
+$accent-color:         #448AFF !default;
+$primary-text-color:   #212121 !default;
+$secondary-text-color: #727272 !default;
+$divider-color:        #B6B6B6 !default;
+
+$action-color: $accent-color;
+$dark-gray: $primary-text-color;
+$light-gray: $primary-color-light;
+$base-font-color: $primary-text-color;
+
+// Type
 $serif: 'Lusitana', serif;
 $serif-2: 'Merriweather', serif;
+$serif-3: 'Raleway', serif;
+$serif-4: 'Roboto', serif;
 $sans-serif: 'Merriweather Sans', sans-serif;
 
+<<<<<<< HEAD
 $large-site-width: 60%;
 $medium-site-width: 95%;
+=======
+// Brand Styles
+$brand-primary-type: $serif-2;
+$brand-primary-type-sans-serif: $sans-serif;
+$brand-type-headings: $serif-3;
+>>>>>>> 0f04e10d460baaebd04e9a75d8f4d812c6c4ad6e
 
 
-//* General Site Styles
+/* ==========================================================================
+   General Site Styles
+   ========================================================================== */
 .site-container {
   @include media($medium-screen) {
     @include outer-container($large-site-width);  
@@ -30,7 +69,7 @@ $medium-site-width: 95%;
 
 html {
 	@include clearfix;
-	font-family: $serif-2;
+	font-family: $brand-primary-type;
 	text-align: left;
 }
 
@@ -40,6 +79,12 @@ body {
 
 h1, h2, h3, p {
   margin: 0;
+  font-family: $brand-type-headings;
+  color: $dark-gray;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: $brand-type-headings;
 }
 
 hr {
@@ -60,10 +105,17 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
 .type {
   border-bottom: 1px solid;
   display: inline-block;
-  font-family: $sans-serif;
+  font-family: $brand-primary-type-sans-serif;
   font-size: 0.7em;
   font-weight: 700;
   margin-bottom: 2em;
@@ -73,23 +125,22 @@ a {
 }
 
 h1 {
-  font-family: $serif;
   font-size: 2em;
   font-weight: 700;
   margin-bottom: 0.5em;
-
+  margin-top: $base-heading-top-spacing;
   @include media($medium-screen) {
     font-size: 2.6em;
   }
 }
 
 h2 {
-  font-family: $serif-2;
   font-size: 1em;
   font-style: italic;
   font-weight: 400;
   line-height: 1.6em;
   margin-bottom: 0.9em;
+  margin-top: $base-heading-top-spacing;
 
   @include media($medium-screen) {
     font-size: 1.2em;
@@ -112,36 +163,52 @@ code {
 }
 
 h3 {
-  font-family: $serif;
   font-size: 1.4em;
   font-weight: 400;
   line-height: 1.3em;
   margin-bottom: .4em;
+  margin-top: $base-heading-top-spacing;
 }
 
 p.date {
   color: transparentize($base-font-color, .6);
-  font-family: $serif-2;
+  $font-family: roboto;
   font-size: 0.9em;
   font-style: italic;
   margin-bottom: 0.3em;
 }
 
 p {
-  font-family: $serif-2;
+  font-family: $brand-primary-type;
   font-size: 0.9em;
   line-height: 1.6em;
   margin-bottom: 1.5em;
 
   span {
-    font-family: $sans-serif;
+    font-family: $brand-primary-type-sans-serif;
     font-weight: 700;
+  }
+}
+
+/* ==========================================================================
+   Quotes
+   ========================================================================== */
+blockquote {
+  padding: 20px;
+  border-left: 5px solid $accent-color;
+  p {
+    color: $primary-color-dark;
+    font-style: italic;
+    font-weight: 600;
+    cite{
+      font-weight: 400;
+    }
   }
 }
 
 a.read-more {
   display: inline-block;
-  font-family: $sans-serif;
+  font-family: $brand-primary-type-sans-serif;
   font-size: 0.8em;
   font-weight: 700;
   margin-left: 0.2em;
@@ -163,10 +230,11 @@ hr {
 }
 
 p.author {
-  font-family: $serif-2;
+  font-family: $brand-primary-type;
   font-style: italic;
 }
 
+<<<<<<< HEAD
 //* Nav
 
 header {
@@ -186,6 +254,11 @@ header {
   text-align: center;
 }
 
+=======
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+>>>>>>> 0f04e10d460baaebd04e9a75d8f4d812c6c4ad6e
 nav {
   @include padding($base-spacing null);
 }
@@ -221,8 +294,13 @@ nav li {
   @include span-columns(12);
 
   h1 {
+<<<<<<< HEAD
     font-family: $sans-serif;
     margin: 0;
+=======
+    font-family: $brand-primary-type-sans-serif;
+    margin-top: 0px;
+>>>>>>> 0f04e10d460baaebd04e9a75d8f4d812c6c4ad6e
   }
 
   a {
@@ -238,8 +316,9 @@ nav li {
   @include span-columns(12);
 }
 
-//* Form styling
-
+/* ==========================================================================
+   Forms
+   ========================================================================== */
 .form-stacked input,
 .form-stacked textarea {
   width: 100%;
@@ -261,13 +340,15 @@ textarea, input {
 }
 
 input, select, textarea, fieldset {
-  font-family: $serif-2;
+  font-family: $brand-primary-type;
   font-size: 20px;
   font-weight: normal;
   margin-bottom: 0.5rem;
 }
 
-
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
 #{$all-buttons} {
   appearance: none;
   background-color: $action-color;
@@ -276,7 +357,7 @@ input, select, textarea, fieldset {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: $sans-serif;
+  font-family: $brand-primary-type-sans-serif;
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
@@ -304,6 +385,7 @@ input, select, textarea, fieldset {
   }
 }
 
+<<<<<<< HEAD
 //* Homepage
 
 #author-photo {
@@ -311,6 +393,13 @@ input, select, textarea, fieldset {
     @include span-columns(2);
     @include padding(0 null);
   }
+=======
+/* ==========================================================================
+   Home Page
+   ========================================================================== */
+#author {
+	@include span-columns(12);
+>>>>>>> 0f04e10d460baaebd04e9a75d8f4d812c6c4ad6e
 
   @include span-columns(12);
   @include padding(($base-spacing / 2) null);
@@ -337,6 +426,10 @@ input, select, textarea, fieldset {
   }
 }
 
+
+/* ==========================================================================
+   Posts
+   ========================================================================== */
 #recent-posts {
 	@include span-columns(12);
 	@include pad(35px 0);
