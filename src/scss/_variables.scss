@@ -1,0 +1,18 @@
+//* Spacing
+$base-border-radius: 3px !default;
+$base-line-height: 1.5em !default;
+$base-spacing: 1.5em !default;
+
+//* Colors
+$accent-color: #F8DA59 !default;
+$accent-dark-color: #E1B90A !default;
+$action-color: #477DCA !default;
+$dark-gray: #333 !default;
+$light-gray: #DDD !default;
+$medium-screen: em(640) !default;
+$base-font-color: $dark-gray !default;
+
+//* Fonts
+$serif: 'Lusitana', serif;
+$serif-2: 'Merriweather', serif;
+$sans-serif: 'Merriweather Sans', sans-serif;
