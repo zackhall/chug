@@ -3,7 +3,7 @@ var browserSync = require('browser-sync').create(),
   frontMatter = require('gulp-front-matter'),
   fs = require('fs'),
   gulp = require('gulp'),
-  marked = require('gulp-marked'),
+  md = require('markdown-it')({ html: true }),
   nunjucks = require('nunjucks');
   path = require('path'),
   rename = require('gulp-rename'),
@@ -20,6 +20,10 @@ var env = nunjucks.configure(['src', 'src/partials/', 'src/pages'], {
   noCache: true
 });
 
+var mdOptions = {
+  html: true
+};
+
 var postNamePattern = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/;
 
 gulp.task('index', ['posts'], function() {
@@ -32,7 +36,7 @@ gulp.task('index', ['posts'], function() {
 gulp.task('posts', function() {
   return gulp.src('src/posts/*.md')
     .pipe(frontMatter({ property: 'page', remove: true }))
-    .pipe(marked())
+    .pipe(convertMarkdown())
     .pipe(data(site))
     .pipe(applyNunjucksTemplate('src/partials/_post.html'))
     .pipe(parsePostName())
@@ -57,7 +61,7 @@ gulp.task('pages:md', function() {
   return gulp.src('src/pages/*.md')
     .pipe(data(site))
     .pipe(frontMatter({ property: 'page', remove: true }))
-    .pipe(marked())
+    .pipe(convertMarkdown())
     .pipe(applyNunjucksTemplate())
     .pipe(rename(function(path) {
       path.extname = ".html";
@@ -124,6 +128,14 @@ gulp.task('clean', function() {
 });
 
 gulp.task('default', ['serve']);
+
+function convertMarkdown() {
+  return through.obj(function (file, enc, cb) {
+    file.contents = new Buffer(md.render(file.contents.toString()), 'utf8');
+    this.push(file);
+    cb();
+  });
+}
 
 function applyNunjucksTemplate(templateFile) {
   return through.obj(function (file, enc, cb) {
