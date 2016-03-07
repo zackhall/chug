@@ -1,8 +1,112 @@
-$primary-color-dark:   #616161 !default;
-$primary-color:        #9E9E9E !default;
-$primary-color-light:  #F5F5F5 !default;
-$primary-color-text:   #212121 !default;
-$accent-color:         #448AFF !default;
-$primary-text-color:   #212121 !default;
-$secondary-text-color: #727272 !default;
-$divider-color:        #B6B6B6 !default;
+//* Palette Options
+// bluegrey
+// orangecyan
+// bluegreyamber
+// lightbluelightgreen
+// purplecyan
+// indigogrey
+// greyamber
+
+
+$palette: bluegreyamber;
+
+@if $palette == bluegrey {
+	//* https://www.materialpalette.com/blue/grey
+	$primary-color-dark:   #1976D2;
+	$primary-color:        #2196F3;
+	$primary-color-light:  #BBDEFB;
+	$primary-color-text:   #FFFFFF;
+	$accent-color:         #9E9E9E;
+	$primary-text-color:   #212121;
+	$secondary-text-color: #727272;
+	$divider-color:        #B6B6B6;
+
+} @else if $palette == orangecyan {
+	//* https://www.materialpalette.com/deep-orange/cyan
+	$primary-color-dark:   #E64A19;
+	$primary-color:        #FF5722;
+	$primary-color-light:  #FFCCBC;
+	$primary-color-text:   #FFFFFF;
+	$accent-color:         #00BCD4;
+	$primary-text-color:   #212121;
+	$secondary-text-color: #727272;
+	$divider-color:        #B6B6B6;
+
+} @else if $palette == bluegreyamber {
+	//* https://www.materialpalette.com/blue-grey/amber
+	$primary-color-dark:   #E64A19;
+	$primary-color:        #FF5722;
+	$primary-color-light:  #FFCCBC;
+	$primary-color-text:   #FFFFFF;
+	$accent-color:         #00BCD4;
+	$primary-text-color:   #212121;
+	$secondary-text-color: #727272;
+	$divider-color:        #B6B6B6;
+
+} @else if $palette == lightbluelightgreen {
+	//* https://materialpalette.com/light-blue/light-green
+	$primary-color-dark:   #0288D1;
+	$primary-color:        #03A9F4;
+	$primary-color-light:  #B3E5FC;
+	$primary-color-text:   #FFFFFF;
+	$accent-color:         #8BC34A;
+	$primary-text-color:   #212121;
+	$secondary-text-color: #727272;
+	$divider-color:        #B6B6B6;
+
+} @else if $palette == purplecyan {
+	//* https://materialpalette.com/purple/cyan
+	$primary-color-dark:   #7B1FA2;
+	$primary-color:        #9C27B0;
+	$primary-color-light:  #E1BEE7;
+	$primary-color-text:   #FFFFFF;
+	$accent-color:         #00BCD4;
+	$primary-text-color:   #212121;
+	$secondary-text-color: #727272;
+	$divider-color:        #B6B6B6;
+
+} @else if $palette == pinkindigo {
+	//* https://materialpalette.com/pink/indigo
+	$primary-color-dark:   #C2185B;
+	$primary-color:        #E91E63;
+	$primary-color-light:  #F8BBD0;
+	$primary-color-text:   #FFFFFF;
+	$accent-color:         #536DFE;
+	$primary-text-color:   #212121;
+	$secondary-text-color: #727272;
+	$divider-color:        #B6B6B6;
+
+} @else if $palette == indigogrey {
+	//* https://materialpalette.com/indigo/grey
+	$primary-color-dark:   #303F9F;
+	$primary-color:        #3F51B5;
+	$primary-color-light:  #C5CAE9;
+	$primary-color-text:   #FFFFFF;
+	$accent-color:         #9E9E9E;
+	$primary-text-color:   #212121;
+	$secondary-text-color: #727272;
+	$divider-color:        #B6B6B6;
+
+} @else if $palette == greyamber {
+	//* https://materialpalette.com/grey/amber
+	$primary-color-dark:   #616161;
+	$primary-color:        #9E9E9E;
+	$primary-color-light:  #F5F5F5;
+	$primary-color-text:   #212121;
+	$accent-color:         #FFC107;
+	$primary-text-color:   #FFFFFF;
+	$secondary-text-color: #727272;
+	$divider-color:        #B6B6B6;
+
+
+} @else {
+	//* Default to grey blue palette (https://www.materialpalette.com/blue/grey)
+	$primary-color-dark:   #1976D2;
+	$primary-color:        #2196F3;
+	$primary-color-light:  #BBDEFB;
+	$primary-color-text:   #FFFFFF;
+	$accent-color:         #9E9E9E;
+	$primary-text-color:   #212121;
+	$secondary-text-color: #727272;
+	$divider-color:        #B6B6B6;
+}
