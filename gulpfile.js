@@ -26,8 +26,8 @@ var mdOptions = {
 
 var postNamePattern = /(\d{4})-(\d{1,2})-(\d{1,2})-(.*)/;
 
-gulp.task('index', ['posts'], function() {
-  gulp.src('src/index.html')
+gulp.task('root', ['posts'], function() {
+  gulp.src('src/*.html')
     .pipe(data(site))
     .pipe(nunjucksRender())
     .pipe(gulp.dest('dist'));
@@ -117,7 +117,7 @@ gulp.task('reload', function() {
   browserSync.reload();
 })
 
-gulp.task('build', ['posts', 'pages', 'index', 'sass'], function() {
+gulp.task('build', ['posts', 'pages', 'root', 'sass'], function() {
   gulp.src('assets/*')
     .pipe(gulp.dest('dist/assets/'));
 });
