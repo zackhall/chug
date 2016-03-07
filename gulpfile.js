@@ -8,7 +8,8 @@ var browserSync = require('browser-sync').create(),
   path = require('path'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
-  through = require('through2');
+  through = require('through2'),
+  url = require('url');
 
 var bourbon = require('node-bourbon').includePaths,
   neat = require('node-neat').includePaths;
@@ -85,13 +86,27 @@ gulp.task('sass', function() {
 gulp.task('serve', ['build'], function() {
 
   browserSync.init({
-    server: "./dist"
+    server: {
+      baseDir: "./dist",
+      middleware: [addExt]
+    }
   });
 
   gulp.watch('src/**/*.html', ['build', 'reload']);
   gulp.watch('src/pages/*.md', ['build', 'reload']);
   gulp.watch('src/posts/**/*.md', ['posts', 'reload']);
   gulp.watch('src/scss/**/*.scss', ['sass', 'reload']);
+
+  function addExt(req, res, next) {
+    var parsed = url.parse(req.url);
+    if (parsed.pathname 
+      && parsed.pathname != '/'
+      && parsed.pathname.split('.').length <= 1) {
+      req.url += '.html';
+    }
+
+    next();
+  }
 });
 
 gulp.task('reload', function() {
@@ -162,7 +177,8 @@ function parsePostName() {
       var day      = match[3];
       var basename = match[4];
       file.page.date = new Date(year, month, day);
-      file.page.url  = '/posts/' + year + '/' + month + '/' + day + '/' + basename; // + '.html';
+      file.page.url  = '/posts/' + year + '/' + month + '/' + day + '/' + basename;
+      file.page.path = file.page.url.replace('.html', '');
     }
     
     this.push(file);
