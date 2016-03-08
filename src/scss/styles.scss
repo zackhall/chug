@@ -9,15 +9,14 @@
 .site-container {
   @include media($medium-screen) {
     @include outer-container($large-site-width);  
-  }	
+  } 
   @include outer-container($medium-site-width);
 }
 
 html {
-	@include clearfix;
-	font-family: $serif-2;
-	text-align: left;
-  background-color: $primary-color-text;
+  @include clearfix;
+  font-family: $serif-2;
+  text-align: left;
   color: $primary-text-color;
 }
 
@@ -43,7 +42,7 @@ p {
 }
 
 a {
-  color: $primary-color;
+  color: $accent-color;
   text-decoration: none;
 }
 
@@ -88,10 +87,10 @@ pre code {
 }
 
 code {
-  background: lighten( $accent-color, 2% );
+  background-color: $code-bg-color;
   border-radius: $base-border-radius * 1.5;
   border: 1px solid $divider-color;
-  color: $primary-color-text;
+  color: $primary-text-color;
   font-family: monaco;
   font-size: 0.75em;
   font-style: normal;
@@ -161,7 +160,7 @@ header {
   background-color: $primary-color;
   color: $primary-color-text;
   margin-bottom: 50px;
-  border-bottom: 4px solid $accent-color;
+  border-bottom: 1px solid $primary-color-dark;
   @include padding($base-spacing null);
 }
 
@@ -199,12 +198,11 @@ nav li {
   display: block;
 
   a {
-    color: $primary-color-text;
+    color: $accent-color;
   }
 
   a:hover {
     border-bottom: 3px solid $accent-color;
-    color: $primary-color-text;
   }
 }
 
@@ -333,7 +331,7 @@ input, select, textarea, fieldset {
 }
 
 #recent-posts {
-	@include span-columns(12);
-	@include pad(35px 0);
+  @include span-columns(12);
+  @include pad(35px 0);
 }
 
