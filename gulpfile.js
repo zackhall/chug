@@ -9,7 +9,9 @@ var browserSync = require('browser-sync').create(),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
   through = require('through2'),
-  url = require('url');
+  url = require('url'),
+  concat = require('gulp-concat'),
+  minify = require('gulp-minify-css');
 
 var bourbon = require('node-bourbon').includePaths,
   neat = require('node-neat').includePaths;
@@ -84,6 +86,8 @@ gulp.task('sass', function() {
         includePaths: bourbon,
         includePaths: neat
       }))
+    .pipe(concat('styles.css'))
+    .pipe(minify())
     .pipe(gulp.dest('dist/css/'));
 });
 

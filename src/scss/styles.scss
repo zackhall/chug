@@ -1,30 +1,15 @@
-@import "bourbon";
-@import "neat";
-
-$base-border-radius: 3px !default;
-$base-line-height: 1.5em !default;
-$base-spacing: 1.5em !default;
-$accent-color: #F8DA59 !default;
-$accent-dark-color: #E1B90A !default;
-$action-color: #477DCA !default;
-$dark-gray: #333 !default;
-$light-gray: #DDD !default;
-$medium-screen: em(640) !default;
-$base-font-color: $dark-gray !default;
-$serif: 'Lusitana', serif;
-$serif-2: 'Merriweather', serif;
-$sans-serif: 'Merriweather Sans', sans-serif;
-
-$large-site-width: 60%;
-$medium-site-width: 95%;
-
+@import 'bourbon';
+@import 'neat';
+@import 'colors';
+@import 'variables';
+@import 'grid';
+@import 'tables';
 
 //* General Site Styles
 .site-container {
   @include media($medium-screen) {
     @include outer-container($large-site-width);  
-  }
-	
+  }	
   @include outer-container($medium-site-width);
 }
 
@@ -32,18 +17,21 @@ html {
 	@include clearfix;
 	font-family: $serif-2;
 	text-align: left;
+  background-color: $primary-color-text;
+  color: $primary-text-color;
 }
 
 body {
   margin: 0;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, h4,h5,p {
   margin: 0;
+  color: $primary-text-color;
 }
 
 hr {
-  border-bottom: 1px solid $light-gray;
+  border-bottom: 2px solid $accent-color;
   border-left: none;
   border-right: none;
   border-top: none;
@@ -51,12 +39,11 @@ hr {
 }
 
 p {
-  color: $base-font-color;
   line-height: $base-line-height;
 }
 
 a {
-  color: $action-color;
+  color: $primary-color;
   text-decoration: none;
 }
 
@@ -101,9 +88,10 @@ pre code {
 }
 
 code {
-  background: #F7F7F7;
+  background: lighten( $accent-color, 2% );
   border-radius: $base-border-radius * 1.5;
-  border: 1px solid #E0E0E0;
+  border: 1px solid $divider-color;
+  color: $primary-color-text;
   font-family: monaco;
   font-size: 0.75em;
   font-style: normal;
@@ -116,11 +104,11 @@ h3 {
   font-size: 1.4em;
   font-weight: 400;
   line-height: 1.3em;
-  margin-bottom: .4em;
+  margin: .5em 0em .2em 0em;
 }
 
 p.date {
-  color: transparentize($base-font-color, .6);
+  color: transparentize($primary-text-color, .6);
   font-family: $serif-2;
   font-size: 0.9em;
   font-style: italic;
@@ -170,9 +158,10 @@ p.author {
 //* Nav
 
 header {
-  background-color: $accent-color;
+  background-color: $primary-color;
+  color: $primary-color-text;
   margin-bottom: 50px;
-  border-bottom: 1px solid $accent-dark-color;
+  border-bottom: 4px solid $accent-color;
   @include padding($base-spacing null);
 }
 
@@ -192,6 +181,7 @@ nav {
 
 nav ul {
   list-style-type: none;
+
   @include margin(null 0);
   @include padding(null 0);
   
@@ -205,11 +195,16 @@ nav li {
     display: inline-block;
     padding: 0 10px;
   }
-
+  color: $primary-color-text;
   display: block;
 
+  a {
+    color: $primary-color-text;
+  }
+
   a:hover {
-    border-bottom: 3px solid $action-color;
+    border-bottom: 3px solid $accent-color;
+    color: $primary-color-text;
   }
 }
 
@@ -226,7 +221,7 @@ nav li {
   }
 
   a {
-    color: $base-font-color;
+    color: $primary-color-text;
   }
 }
 
@@ -270,10 +265,10 @@ input, select, textarea, fieldset {
 
 #{$all-buttons} {
   appearance: none;
-  background-color: $action-color;
+  background-color: $accent-color;
   border: 0;
   border-radius: 3px;
-  color: #fff;
+  color: $primary-color-text;
   cursor: pointer;
   display: inline-block;
   font-family: $sans-serif;
@@ -290,8 +285,8 @@ input, select, textarea, fieldset {
 
   &:hover,
   &:focus {
-    background-color: shade($action-color, 20%);
-    color: #fff;
+    background-color: shade($accent-color, 20%);
+    color: $primary-color-text;
   }
 
   &:disabled {
@@ -299,7 +294,7 @@ input, select, textarea, fieldset {
     opacity: 0.5;
 
     &:hover {
-      background-color: $action-color;
+      background-color: $accent-color;
     }
   }
 }
@@ -341,3 +336,4 @@ input, select, textarea, fieldset {
 	@include span-columns(12);
 	@include pad(35px 0);
 }
+

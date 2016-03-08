@@ -1,0 +1,107 @@
+//* Tables
+
+table {
+  background-color: inherit;
+  color: $primary-text-color;
+}
+caption {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: left;
+}
+th {
+  text-align: left;
+}
+
+//* Baseline styles
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1em;
+  //* Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: 1em;
+        line-height: 1em;
+        vertical-align: top;
+      }
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid $accent-color;
+  }
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $accent-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: $accent-color;
+  }
+}
+
+
+//* Condensed table w/ half padding
+.table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: .5em;
+      }
+    }
+  }
+}
+
+//* Bordered Table
+.table-bordered {
+  border: 1px solid $accent-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: 1em;
+        line-height: 1em;
+        vertical-align: top;
+        border-top: 1px solid $accent-color;
+      }
+    }
+  }
+}
+
+//* Striped Tables
+.table-striped {
+  > tbody > tr:nth-of-type(odd) {
+    background-color: $divider-color;
+  }
+}
+
+//* Hover effect
+.table-hover {
+  > tbody > tr:hover {
+    background-color: $divider-color;
+    transition: background-color 0.2s ease;
+  }
+}
