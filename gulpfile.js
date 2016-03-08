@@ -11,6 +11,7 @@ var browserSync = require('browser-sync').create(),
   rename = require('gulp-rename'),
   rimraf = require('rimraf'),
   sass = require('gulp-sass'),
+  surge = require('gulp-surge'),
   through = require('through2'),
   url = require('url');
 
@@ -123,13 +124,18 @@ gulp.task('reload', function() {
 })
 
 gulp.task('build', ['posts', 'pages', 'root', 'sass'], function() {
-  gulp.src('src/assets/*')
+  return gulp.src('src/assets/*')
     .pipe(gulp.dest('dist/assets/'));
 });
 
-gulp.task('clean', function() {
-  rimraf('./dist', function() {
-    console.log('Clean success.');
+gulp.task('clean', function(cb) {
+  rimraf('./dist', cb);
+});
+
+gulp.task('deploy', ['build'], function (cb) {
+  return surge({
+    project: './dist',
+    domain: site.CNAME
   });
 });
 

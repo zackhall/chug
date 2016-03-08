@@ -5,5 +5,6 @@
   "googleAnalytics": "UA-XXXXX-Y",
   "site": {
   	"email": "zackhall@outlook.com"
-  }
+  },
+  "CNAME": "chug.surge.sh"
 }
