@@ -1,17 +1,18 @@
-var browserSync = require('browser-sync').create(), 
+var browserSync = require('browser-sync').create(),
+  concat = require('gulp-concat'), 
   data = require('gulp-data'),
   frontMatter = require('gulp-front-matter'),
   fs = require('fs'),
   gulp = require('gulp'),
   md = require('markdown-it')({ html: true }),
+  minify = require('gulp-minify-css'),
   nunjucks = require('nunjucks');
   path = require('path'),
   rename = require('gulp-rename'),
+  rimraf = require('rimraf'),
   sass = require('gulp-sass'),
   through = require('through2'),
-  url = require('url'),
-  concat = require('gulp-concat'),
-  minify = require('gulp-minify-css');
+  url = require('url');
 
 var bourbon = require('node-bourbon').includePaths,
   neat = require('node-neat').includePaths;
@@ -122,13 +123,14 @@ gulp.task('reload', function() {
 })
 
 gulp.task('build', ['posts', 'pages', 'root', 'sass'], function() {
-  gulp.src('assets/*')
+  gulp.src('src/assets/*')
     .pipe(gulp.dest('dist/assets/'));
 });
 
 gulp.task('clean', function() {
-  return gulp.src('dist', {read: false})
-    .pipe(clean());
+  rimraf('./dist', function() {
+    console.log('Clean success.');
+  });
 });
 
 gulp.task('default', ['serve']);
