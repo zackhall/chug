@@ -17,6 +17,7 @@ Chug offers:
 - Includes the Bourbon and Neat Sass mixin libraries for writing Sass faster
 - Ability to start local server that watches files and refreshes the browser using BrowserSync
 - Contact form support and Google Analytics support ready with update to config
+- Built in quick deployment using Surge
 
 
 ## Get started
