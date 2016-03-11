@@ -21,15 +21,15 @@ function getTask(task) {
 }
 
 gulp.task('assets', getTask('assets'));
-gulp.task('root', ['posts'], getTask('root'));
+gulp.task('build', ['posts', 'pages', 'root', 'sass', 'assets']);
+gulp.task('clean', getTask('clean'));
+gulp.task('default', ['serve']);
+gulp.task('deploy', ['build'], getTask('deploy'));
 gulp.task('posts', getTask('posts'));
-gulp.task('pages:md', getTask('pages/pages_md'));
-gulp.task('pages:html', getTask('pages/pages_html'));
 gulp.task('pages', ['pages:md', 'pages:html']);
+gulp.task('pages:html', getTask('pages/pages_html'));
+gulp.task('pages:md', getTask('pages/pages_md'));
+gulp.task('reload', function() { browserSync.reload(); });
+gulp.task('root', ['posts'], getTask('root'));
 gulp.task('sass', getTask('sass'));
 gulp.task('serve', ['build'], getTask('serve'));
-gulp.task('reload', function() { browserSync.reload(); });
-gulp.task('clean', getTask('clean'));
-gulp.task('build', ['posts', 'pages', 'root', 'sass', 'assets']);
-gulp.task('deploy', ['build'], getTask('deploy'));
-gulp.task('default', ['serve']);
