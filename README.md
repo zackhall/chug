@@ -14,7 +14,10 @@ Chug offers:
 - Includes the Bourbon and Neat Sass mixin libraries for writing Sass faster
 - Ability to start local server that watches files and refreshes the browser using BrowserSync
 - Contact form support and Google Analytics support ready with update to config
-
+- Automatic bower support
+- Javascript minificaiton
+- Automatic google fonts integration
+- Supports sourcemaps
 
 ## Get started
 
@@ -41,8 +44,14 @@ This command will clear the `dist` folder.
 ### Project structure:
 
 ```
-assets/
 src/
+  assets/
+    sass/
+      styles.scss
+    fonts/
+    images/
+    js/
+      main.js
   pages/
     about.md
     contact.html
@@ -54,14 +63,31 @@ src/
     _post.html
   posts/
     2016-01-01-first-post.md
-  scss/
-    styles.scss
+  404.html
   index.html
 ```
 
 #### assets/
 
-The assets folder contains any static assets that need no processing, such as images or 3rd party js libs. These will be copied over, as-is, to `dist/assets/`.
+The assets folder contains all non html assets including Sass styles, scripts, images and fonts.
+
+##### Sass styles/
+The location for Sass files (*.scss) are under `src/assets/sass` directory. These files are run through the Sass compiler, auto prefixed for browser compatability and minified before output to `dist/style.css`.
+
+##### Javascript/
+All custom scripts are under `src/assets/js` directory. These fils are ugilified, compressed and combined before out put to `dist/js/main.js`.
+
+##### Bower components/
+All components defined in bower list are automatically compiled into `dist/js/vendor.js` or `dist/css/vendor.css`. The gulp tasks refers to main file definition of each bower component to extract necessary files. If a component doesn't have main files defined then consult [this link](https://github.com/ck86/main-bower-files) to define them manually.
+
+##### Images/
+All images under `src/images` are optimised and copied to `dist/images`. Supported image types are PNG, JPG, SVG, GIF.
+
+##### Fonts/
+Two types of fonts are supported:
+
+1. Custom fonts: All custom fonts under `src/assets/fonts` are copied to `dist/fonts` directory.
+2. Google fonts: Define all google fonts in `fonts.list`. These fonts plus an auto generated `fonts.css` are copied to `dist/fonts`;
 
 #### pages/
 
@@ -91,9 +117,3 @@ title: Hello, world.
 ...Markdown content here...
 ```
 
-#### scss/
-
-The scss folder contains \*.scss files that are run through the Sass compiler and output to `dist/*.css`.
-
-  
-  
