@@ -1,0 +1,9 @@
+# Tab-delimeted format
+# Oswald  400,700 latin,latin-ext
+
+# Google format
+# Roboto:500,500italic&subset=greek
+
+Lusitana:400,700
+Merriweather:400,300,300italic,400italic,700,700italic,900,900italic
+Merriweather+Sans:400,300,300italic,400italic,700italic,700,800,800italic

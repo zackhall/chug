@@ -9,7 +9,7 @@
 .site-container {
   @include media($medium-screen) {
     @include outer-container($large-site-width);  
-  } 
+  }
   @include outer-container($medium-site-width);
 }
 
@@ -18,6 +18,7 @@ html {
   font-family: $serif-2;
   text-align: left;
   color: $primary-text-color;
+  background-color: green;
 }
 
 body {
@@ -298,7 +299,6 @@ input, select, textarea, fieldset {
 }
 
 //* Homepage
-
 #author-photo {
   @include media($medium-screen) {
     @include span-columns(2);

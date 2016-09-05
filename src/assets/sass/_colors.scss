@@ -14,6 +14,15 @@ $dark-gray: #333 !default;
 $light-gray: #DDD !default;
 $code-bg-color: #F7F7F7 !default;
 
+$primary-color-dark:   #1976D2;
+$primary-color:        #2196F3;
+$primary-color-light:  #BBDEFB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #9E9E9E;
+$primary-text-color:   #212121;
+$secondary-text-color: #727272;
+$divider-color:        #B6B6B6;
+
 @if $palette == chugdefault {
 	$primary-color-dark:   #E1B90A;
 	$primary-color:				 #F8DA59;
@@ -113,14 +122,4 @@ $code-bg-color: #F7F7F7 !default;
 	$divider-color:        #B6B6B6;
 
 
-} @else {
-	//* Default to grey blue palette (https://www.materialpalette.com/blue/grey)
-	$primary-color-dark:   #1976D2;
-	$primary-color:        #2196F3;
-	$primary-color-light:  #BBDEFB;
-	$primary-color-text:   #FFFFFF;
-	$accent-color:         #9E9E9E;
-	$primary-text-color:   #212121;
-	$secondary-text-color: #727272;
-	$divider-color:        #B6B6B6;
 }
