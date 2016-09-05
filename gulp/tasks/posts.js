@@ -11,7 +11,7 @@ module.exports = function(gulp, plugins, site) {
       .pipe(plugins.frontMatter({ property: 'page', remove: true }))
       .pipe(plugins.md())
       .pipe(plugins.data(site))
-      .pipe(plugins.nunjucks.apply('src/partials/_post.html'))
+      .pipe(plugins.nunjucks.apply('src/theme/'+site.theme+'/_post.html'))
       .pipe(parsePostName())
       .pipe(collectPosts())
       .pipe(plugins.rename(function (path) {
