@@ -28,6 +28,7 @@
     "gulp-google-webfonts": "0.0.14",
     "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^3.0.3",
+    "gulp-load-plugins": "https://registry.npmjs.org/gulp-load-plugins/-/gulp-load-plugins-1.2.4.tgz",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
