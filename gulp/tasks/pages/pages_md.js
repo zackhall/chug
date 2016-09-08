@@ -10,6 +10,8 @@ module.exports = function(gulp, plugins, site) {
       .pipe(plugins.rename(function(path) {
         path.extname = '.html';
       }))
+      .pipe(plugins.htmlhint())
+      .pipe(plugins.htmlhint.reporter())
       .pipe(plugins.htmlmin({collapseWhitespace: true}))
       .pipe(gulp.dest('dist/pages'));
   };

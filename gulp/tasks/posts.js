@@ -27,6 +27,8 @@ module.exports = function(gulp, plugins, site) {
           path.basename = match[4];
         }
       }))
+      .pipe(plugins.htmlhint())
+      .pipe(plugins.htmlhint.reporter())
       .pipe(plugins.htmlmin({collapseWhitespace: true}))
       .pipe(gulp.dest('dist/posts'));
   };
