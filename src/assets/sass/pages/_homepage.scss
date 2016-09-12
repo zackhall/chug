@@ -1,0 +1,35 @@
+#author-photo {
+  @include media($medium-screen) {
+    @include span-columns(2);
+    @include padding(0 null);
+  }
+
+  @include span-columns(12);
+  @include padding(($base-spacing / 2) null);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    @include size(3.5rem);
+    border-radius: 50%;
+  }
+}
+
+#author-bio {
+  @include media($medium-screen) {
+    @include span-columns(10);
+  }
+
+  @include span-columns(12);
+
+  p {
+    line-height: 1em;
+  }
+}
+
+#recent-posts {
+  @include span-columns(12);
+  @include pad(35px 0);
+}

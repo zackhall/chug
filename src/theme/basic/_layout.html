@@ -18,13 +18,16 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        {% include '_header.html' %}
-        <div class="site-container">
-            {% block content %}
-                <p class="default">This is an awesome page.</p>
-            {% endblock %}
+        <div class="main-wrapper">
+            {% include '_header.html' %}
+            <div class="site-container">
+                {% block content %}
+                    <p class="default">This is an awesome page.</p>
+                {% endblock %}
+                <div class="footer-push"></div>
+            </div>
         </div>
-
+        {% include '_footer.html' %}
         <script src="js/vendor.js"></script>
         <script src="js/main.js"></script>
         <script>
