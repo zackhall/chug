@@ -28,8 +28,9 @@ gulp.task('pages', ['pages:md', 'pages:html']);
 gulp.task('bower', getTask('bower'));
 gulp.task('vendorjs', getTask('vendor-js'));
 gulp.task('vendorcss', getTask('vendor-css'));
+gulp.task('vendorfonts', getTask('vendor-fonts'));
 gulp.task('vendor', function(cb){
-  plugins.runSequence('bower', 'vendorjs', 'vendorcss', 'reload');
+  plugins.runSequence('bower', 'vendorjs', 'vendorfonts', 'vendorcss', 'reload');
   cb();
 });
 
@@ -52,3 +53,4 @@ gulp.task('reload', function() { setTimeout(function(){
 }, 1000); });
 gulp.task('default', ['serve']);
 gulp.task('deploy', ['build'], getTask('deploy'));
+gulp.task('optimize', getTask('optimize'));
