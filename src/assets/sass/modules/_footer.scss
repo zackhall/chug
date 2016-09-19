@@ -1,0 +1,13 @@
+.footer-push{
+  height: $footer-height;
+}
+footer{
+  height: $footer-height;
+  background: $footer-color;
+  display: block;
+  padding: 1em;
+  p{
+    text-align: center;
+    color: white;
+  }
+}

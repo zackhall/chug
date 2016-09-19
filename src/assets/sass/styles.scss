@@ -1,0 +1,167 @@
+@import 'bourbon';
+@import 'neat';
+@import 'colors';
+@import 'variables';
+@import 'grid';
+@import 'tables';
+@import 'forms';
+@import 'modules/modules';
+@import 'pages/pages';
+@import 'posts/posts';
+
+//* General Site Styles
+.site-container {
+  @include media($medium-screen) {
+    @include outer-container($large-site-width);  
+  }
+  @include outer-container($medium-site-width);
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  @include clearfix;
+  font-family: $serif-2;
+  text-align: left;
+  color: $primary-text-color;
+  background-color: green;
+}
+
+.main-wrapper{
+  min-height: 100%;
+  margin-bottom: -$footer-height;
+}
+
+h1, h2, h3, h4,h5,p {
+  margin: 0;
+  color: $primary-text-color;
+}
+
+hr {
+  border-bottom: 2px solid $accent-color;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: $base-spacing 0;
+}
+
+p {
+  line-height: $base-line-height;
+}
+
+a {
+  color: $accent-color;
+  text-decoration: none;
+}
+
+.type {
+  border-bottom: 1px solid;
+  display: inline-block;
+  font-family: $sans-serif;
+  font-size: 0.7em;
+  font-weight: 700;
+  margin-bottom: 2em;
+  padding: 0.3em 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: $serif;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+
+  @include media($medium-screen) {
+    font-size: 2.6em;
+  }
+}
+
+h2 {
+  font-family: $serif-2;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6em;
+  margin-bottom: 0.9em;
+
+  @include media($medium-screen) {
+    font-size: 1.2em;
+  }
+}
+
+pre code {
+  display: block;
+}
+
+code {
+  background-color: $code-bg-color;
+  border-radius: $base-border-radius * 1.5;
+  border: 1px solid $divider-color;
+  color: $primary-text-color;
+  font-family: monaco;
+  font-size: 0.75em;
+  font-style: normal;
+  padding: 0.1em 0.4em;
+  white-space: pre;
+}
+
+h3 {
+  font-family: $serif;
+  font-size: 1.4em;
+  font-weight: 400;
+  line-height: 1.3em;
+  margin: .5em 0em .2em 0em;
+}
+
+p.date {
+  color: transparentize($primary-text-color, .6);
+  font-family: $serif-2;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-bottom: 0.3em;
+}
+
+p {
+  font-family: $serif-2;
+  font-size: 0.9em;
+  line-height: 1.6em;
+  margin-bottom: 1.5em;
+
+  span {
+    font-family: $sans-serif;
+    font-weight: 700;
+  }
+}
+
+a.read-more {
+  display: inline-block;
+  font-family: $sans-serif;
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-left: 0.2em;
+  position: relative;
+  text-transform: uppercase;
+
+  span {
+    font-family: $serif;
+    font-size: 1.5em;
+    font-style: normal;
+    position: absolute;
+    right: -12px;
+    top: -1px;
+  }
+}
+
+hr {
+  width: 3em;
+}
+
+p.author {
+  font-family: $serif-2;
+  font-style: italic;
+}
+

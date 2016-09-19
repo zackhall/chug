@@ -1,0 +1,74 @@
+header {
+  background-color: $primary-color;
+  color: $primary-color-text;
+  margin-bottom: 50px;
+  border-bottom: 1px solid $primary-color-dark;
+  @include padding($base-spacing null);
+}
+
+.header-content {
+  @include media($medium-screen) {
+    @include outer-container($large-site-width);
+    text-align: left;
+  }
+
+  @include outer-container($medium-site-width);
+  text-align: center;
+}
+
+nav {
+  @include padding($base-spacing null);
+}
+
+nav ul {
+  list-style-type: none;
+
+  @include margin(null 0);
+  @include padding(null 0);
+
+  @include media($medium-screen) {
+    float: right;
+  }
+}
+
+nav li {
+  @include media($medium-screen) {
+    display: inline-block;
+    padding: 0 10px;
+  }
+  color: $primary-color-text;
+  display: block;
+
+  a {
+    color: $accent-color;
+  }
+
+  a:hover {
+    border-bottom: 3px solid $accent-color;
+  }
+}
+
+#site-title {
+  @include media($medium-screen) {
+    @include span-columns(4);
+  }
+
+  @include span-columns(12);
+
+  h1 {
+    font-family: $sans-serif;
+    margin: 0;
+  }
+
+  a {
+    color: $primary-color-text;
+  }
+}
+
+#menu-pages {
+  @include media($medium-screen) {
+    @include span-columns(8);
+  }
+
+  @include span-columns(12);
+}

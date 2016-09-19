@@ -5,7 +5,9 @@ var fs = require('fs'),
     path = require('path'),
     through = require('through2');
 
-var env = nunjucks.configure(['src', 'src/partials/', 'src/pages'], {
+var site = require('./../../config.json');
+
+var env = nunjucks.configure(['src', 'src/theme/'+site.theme, 'src/pages'], {
   noCache: true
 });
 
@@ -21,7 +23,7 @@ function apply(templateFile) {
   return through.obj(function (file, enc, cb) {
     templateFile = templateFile 
       ? path.join( templateFile) 
-      : path.join('src', 'partials', file.page.template);
+      : path.join('src', 'theme', site.theme, file.page.template);
     var tpl = nunjucks.compile(fs.readFileSync(templateFile, 'utf8').toString(), env);
 
     var data = Object.assign(file.data, {
